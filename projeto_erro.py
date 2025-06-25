@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter import messagebox#adicionei import
+import tkinter.messagebox#adicionei import
 
 
 cor0 = "#444466"  # Preto / black
@@ -25,9 +25,9 @@ frame_baixo.grid(row= 1, column=0, columnspan=2, pady=15)
 
 
 def escala(valor):
-    r=l_red.get()
-    g=l_green.get()
-    b=l_blue.get()
+    r=s_red.get()
+    g=s_green.get()
+    b=s_blue.get()
 
 
     rgb = f'{r}, {g}, {b}'
@@ -40,13 +40,13 @@ def escala(valor):
 
 
     e_cor.delete(0,END)
-    e_cor.inset(0,hexadecimal)
+    e_cor.insert(0,hexadecimal)
 
 
 
 
 def onCLick():
-    messagebox.showinfo('Cor', "a cor foi copiada")#removi o tkinter
+    tkinter.messagebox.showinfo('Cor', "a cor foi copiada")#removi o tkinter.
 
 
     clip = Tk()
@@ -56,19 +56,19 @@ def onCLick():
     clip.destroy()
 
 
-l_red = Label(frame_direita, text='Red', width=7, bg=cor1, fg='red', anchor='nw', font=('Time new Roman, 12, bold'))#removi  as aspas do tema da letra
+l_red = Label(frame_direita, text='Red', width=7, bg=cor1, fg='red', anchor='nw', font=("Time New Roman", 12, "bold"))#removi  as , do tema da letrta
 l_red.grid(row= 0, column=0)
 s_red=Scale(frame_direita, command= escala, from_=0, to=255, bg=cor1,fg="red", orient=HORIZONTAL)#arrumei o fg
 s_red.grid(row= 0, column=1)
 
 
-l_green = Label(frame_direita, text='Green', width=7, bg=cor1, fg='green', anchor='nw', font = ('Time new Roman 12 bold'))#arrumei a variavel
+l_green = Label(frame_direita, text='Green', width=7, bg=cor1, fg='green', anchor='nw', font = ("Time New Roman", 12, "bold"))#arrumei a variavel e tambem arrumei o fg
 l_green.grid(row= 1, column=0)#arrumei a variavel
 s_green=Scale(frame_direita, command= escala, from_=0, to=255, bg=cor1,fg='green', orient=HORIZONTAL)#arrumei a variavel e tambem arrumei o fg
 s_green.grid(row= 1, column=1)#arrumei a variavel
 
 
-l_blue = Label(frame_direita, text='Blue', width=7, bg=cor1, fg='blue', anchor='nw', font = ('Time new Roman 12 bold'))#removi  as aspas do tema da letra
+l_blue = Label(frame_direita, text='Blue', width=7, bg=cor1, fg='blue', anchor='nw', font = ("Time New Roman", 12, "bold"))#removi  as aspas do tema da letra e tambem arrumei o fg
 l_blue.grid(row= 2, column=0)
 s_blue=Scale(frame_direita, command= escala, from_=0, to=255, bg=cor1,fg='blue', orient=HORIZONTAL)#arrumei o fg
 s_blue.grid(row= 2, column=1)
@@ -78,15 +78,15 @@ l_rgb = Label(frame_baixo, text="CÓDIGO HEX : ", bg=cor1, font=('Ivy 10 bold'))
 l_rgb.grid(row= 0, column=0, padx= 5)
 
 
-e_cor = Entry(frame_baixo, bg=cor1, font=('Ivy 10 bold'), justify=CENTER)#removi  as aspas do tema da letra
+e_cor = Entry(frame_baixo, bg=cor1, font=("Ivy", 10,"bold"), justify=CENTER)#removi  as aspas do tema da letra
 e_cor.grid(row= 0, column=1, padx= 5)
 
 
-b_copiar = Button(frame_baixo, text="Copiar a cor", bg=cor1, font=('Ivy 8 bold'), relief=RAISED, overrelief= RIDGE)#removi  as aspas e as virgulas do tema da letra 
+b_copiar = Button(frame_baixo, text="Copiar a cor", bg=cor1, font=("Ivy", 8,"bold"), relief=RAISED, overrelief= RIDGE)#removi  as aspas e as virgulas do tema da letra 
 b_copiar.grid(row= 0, column=2, padx= 5)
 
 
-l_app_nome = Label(frame_baixo, text="Seletor de cores", bg=cor1, font=('Ivy 15 bold'))#adicionei uma , e removi as , do tema da letra
+l_app_nome = Label(frame_baixo, text="Seletor de cores", bg=cor1, font=("Ivy", 15,"bold"))#adicionei uma , e removi as , do tema da letra
 l_app_nome.grid(row= 0, column=3, padx= 40)
 
 janela.mainloop() #adicionei janela.mainloop()
